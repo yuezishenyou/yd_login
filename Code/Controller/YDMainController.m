@@ -28,18 +28,119 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     
-
-    
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"登" style:UIBarButtonItemStyleDone target:self action:@selector(login)];
+    [self initSubViews];
     
     
-    [self loadData];
+    //[self loadData];
+    
+    //[self loadData1];  //验证码
+    
+    //[self loadData2];   //注册
+    
+    //[self loadData3];    //登录
+    
+    //[self loadData4];    //登录2
+    
+    //[self loadData5];     //用户信息
+    
+    [self loadData6];     //退出
+    
     
     
 }
 
+- (void)loadData6
+{
+    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:
+                          @"ODE3MWI3OTllYTliNDdkM2I2MGVlYTI1MDU0NzhiOGQ=",@"token",
+                          
+                          nil];
+    
+    [YDNetworking postGetLogoutDictionary:dict resultBlock:^(YDLogoutModel *model, NSError *error) {
+        
+        
+    }];
+}
 
 
+- (void)loadData5
+{
+    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:
+                          @"ODE3MWI3OTllYTliNDdkM2I2MGVlYTI1MDU0NzhiOGQ=",@"token",
+                          
+                          nil];
+    
+    [YDNetworking postGetUserInfoDictionary:dict resultBlock:^(YDUserInfoModel *model, NSError *error) {
+        
+    }];
+}
+
+
+
+
+
+- (void)loadData4
+{
+    
+    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:
+                          @"18217726501",@"phone",
+                          @"322826",@"vcode",
+                          nil];
+    
+    [YDNetworking postGetLoginCodeDictionary:dict resultBlock:^(YDLoginModel *model, NSError *error) {
+        //ODE3MWI3OTllYTliNDdkM2I2MGVlYTI1MDU0NzhiOGQ=
+    }];
+}
+
+
+- (void)loadData3
+{
+    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:
+                          @"18217726501",@"phone",
+                          @"maoziyue",@"password",
+                          nil];
+
+    [YDNetworking postGetLoginPassDictionary:dict resultBlock:^(YDLoginModel *model, NSError *error) {
+        
+    }];
+}
+
+
+- (void)loadData2
+{
+    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:
+                          @"18217726501",@"phone",
+                          @"maoziyue",@"password",
+                          @"32821",@"vcode",
+                          nil];
+    [YDNetworking postGetRegistDictionary:dict resultBlock:^(YDRegisterModel *model, NSError *error) {
+       
+    }];
+}
+
+
+
+
+
+
+
+- (void)loadData1
+{
+    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:
+                          @"18217726501",@"phone",
+                          nil];
+    
+    [YDNetworking postGetAuthCodeDictionary:dict resultBlock:^(YDAuthCodeModel *model, NSError *error) {
+
+        if (!error) {
+            if ([model.code isEqualToString:@"0"]) {
+                NSLog(@"--1--");
+            }
+        }
+    
+    }];;
+
+}
 
 
 
@@ -54,27 +155,21 @@
                           @"18217726501",@"phone",
                           nil];
     
-     //[DejActivityView activityViewForView:self.view withLabel:@"逆发改委个地方你啊对方的方式地方"];
-    //[DejFlickerView flickerWithLabeText:self.view withLabel:@"验证码不能为空"];
-    [DejFlickerView flickerViewForView:self.view withLabel:@"abc"];
+ 
+    [DejActivityView activityViewForView:self.view withLabel:@"数据加载"];
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        //[DejActivityView activityViewForView:self.view withError:@"加载失败"];
-    });
-    
-    
-   
-//    [YDNetworking postGetVaildPhoneWithDictionary:dict resultBlock:^(YDVaildPhoneModel *model, NSError *error) {
-//
-//        [DejActivityView activityViewForView:self.view withError:@"加载失败"];
-//        if (!error) {
-//            //data = 0 没注册
-//        }
-//        else
-//        {
-//
-//        }
-//    }];
+
+    [YDNetworking postGetVaildPhoneWithDictionary:dict resultBlock:^(YDVaildPhoneModel *model, NSError *error) {
+
+        [DejActivityView activityViewForView:self.view withError:@"加载失败"];
+        if (!error) {
+            //data = 0 没注册  data = 1 已经注册过了
+        }
+        else
+        {
+
+        }
+    }];
     
 }
 
@@ -99,7 +194,10 @@
 
 
 
-
+- (void)initSubViews
+{
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"登" style:UIBarButtonItemStyleDone target:self action:@selector(login)];
+}
 
 
 

@@ -1,14 +1,14 @@
 //
-//  YDLoginModel.h
+//  YDLogoutModel.h
 //  ydx_login
 //
-//  Created by maoziyue on 2017/11/4.
+//  Created by maoziyue on 2017/11/5.
 //  Copyright © 2017年 meiyue. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface YDLoginModel : NSObject
+@interface YDLogoutModel : NSObject
 
 @property (nonatomic, copy) NSString *code;
 @property (nonatomic, copy) NSString *msg;

@@ -29,15 +29,89 @@
     }];
 }
 
++ (void)postGetAuthCodeDictionary:(NSDictionary *)dic resultBlock:(void(^)(YDAuthCodeModel *model,NSError *error))block
+{
+    NSString *url = [NSString stringWithFormat:@"%@%@",GATEWAY,@"/user/getVCode"];
+    [YDNetWork POST:url parameters:dic success:^(id responseBody) {
+        NSLog(@"---responseBody:%@---",responseBody);
+        YDAuthCodeModel *model = [YDAuthCodeModel mj_objectWithKeyValues:responseBody];
+        block(model,nil);
+    } failure:^(NSError *error) {
+        NSLog(@"---xxx---");
+        block(nil,error);
+    }];
+}
 
 
 
 
++ (void)postGetRegistDictionary:(NSDictionary *)dict resultBlock:(void(^)(YDRegisterModel *model,NSError *error))block
+{
+    NSString *url = [NSString stringWithFormat:@"%@%@",GATEWAY,@"/user/reg"];
+    [YDNetWork POST:url parameters:dict success:^(id responseBody) {
+        NSLog(@"---responseBody:%@---",responseBody);
+        YDRegisterModel *model = [YDRegisterModel mj_objectWithKeyValues:responseBody];
+        block(model,nil);
+    } failure:^(NSError *error) {
+        NSLog(@"---xxx---");
+        block(nil,error);
+    }];
+}
+
+
++ (void)postGetLoginPassDictionary:(NSDictionary *)dict resultBlock:(void(^)(YDLoginModel *model,NSError *error))block
+{
+    NSString *url = [NSString stringWithFormat:@"%@%@",GATEWAY,@"/user/login"];
+    [YDNetWork POST:url parameters:dict success:^(id responseBody) {
+        NSLog(@"---responseBody:%@---",responseBody);
+        YDLoginModel *model = [YDLoginModel mj_objectWithKeyValues:responseBody];
+        block(model,nil);
+    } failure:^(NSError *error) {
+        NSLog(@"---xxx---");
+        block(nil,error);
+    }];
+}
+
++ (void)postGetLoginCodeDictionary:(NSDictionary *)dict resultBlock:(void(^)(YDLoginModel *model,NSError *error))block
+{
+    NSString *url = [NSString stringWithFormat:@"%@%@",GATEWAY,@"/user/loginsms"];
+    [YDNetWork POST:url parameters:dict success:^(id responseBody) {
+        NSLog(@"---responseBody:%@---",responseBody);
+        YDLoginModel *model = [YDLoginModel mj_objectWithKeyValues:responseBody];
+        block(model,nil);
+    } failure:^(NSError *error) {
+        NSLog(@"---xxx---");
+        block(nil,error);
+    }];
+}
+
++ (void)postGetUserInfoDictionary:(NSDictionary *)dict resultBlock:(void(^)(YDUserInfoModel *model,NSError *error))block
+{
+    NSString *url = [NSString stringWithFormat:@"%@%@",GATEWAY,@"/user/getUserInfo"];
+    [YDNetWork POST:url parameters:dict success:^(id responseBody) {
+        NSLog(@"---responseBody:%@---",responseBody);
+        YDUserInfoModel *model = [YDUserInfoModel mj_objectWithKeyValues:responseBody];
+        block(model,nil);
+    } failure:^(NSError *error) {
+        NSLog(@"---xxx---");
+        block(nil,error);
+    }];
+}
 
 
 
-
-
++ (void)postGetLogoutDictionary:(NSDictionary *)dict resultBlock:(void(^)(YDLogoutModel *model,NSError *error))block
+{
+    NSString *url = [NSString stringWithFormat:@"%@%@",GATEWAY,@"/user/logout"];
+    [YDNetWork POST:url parameters:dict success:^(id responseBody) {
+        NSLog(@"---responseBody:%@---",responseBody);
+        YDLogoutModel *model = [YDLogoutModel mj_objectWithKeyValues:responseBody];
+        block(model,nil);
+    } failure:^(NSError *error) {
+        NSLog(@"---xxx---");
+        block(nil,error);
+    }];
+}
 
 
 

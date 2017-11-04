@@ -16,6 +16,11 @@
 		2D6C27B91FADBEA7006A6572 /* YDVaildPhoneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6C27B81FADBEA7006A6572 /* YDVaildPhoneModel.m */; };
 		2D6C27BD1FADC0F2006A6572 /* DejActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6C27BC1FADC0F1006A6572 /* DejActivityView.m */; };
 		2D6C27C01FADC620006A6572 /* DejFlickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6C27BF1FADC620006A6572 /* DejFlickerView.m */; };
+		2D6C27C21FAE1E08006A6572 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6C27C11FAE1E07006A6572 /* Foundation+Log.m */; };
+		2D6C27C51FAE1E59006A6572 /* YDAuthCodeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6C27C41FAE1E59006A6572 /* YDAuthCodeModel.m */; };
+		2D6C27CB1FAE1FE8006A6572 /* YDRegisterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6C27CA1FAE1FE8006A6572 /* YDRegisterModel.m */; };
+		2D6C27D11FAE2503006A6572 /* YDLogoutModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6C27D01FAE2503006A6572 /* YDLogoutModel.m */; };
+		2D6C27D41FAE2543006A6572 /* YDUserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6C27D31FAE2543006A6572 /* YDUserInfoModel.m */; };
 		2D781CFC1FAC6D4500351E22 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D781CD91FAC6D4500351E22 /* AFHTTPSessionManager.m */; };
 		2D781CFD1FAC6D4500351E22 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D781CDC1FAC6D4500351E22 /* AFNetworkReachabilityManager.m */; };
 		2D781CFE1FAC6D4500351E22 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D781CDE1FAC6D4500351E22 /* AFSecurityPolicy.m */; };
@@ -81,6 +86,15 @@
 		2D6C27BC1FADC0F1006A6572 /* DejActivityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DejActivityView.m; sourceTree = "<group>"; };
 		2D6C27BE1FADC620006A6572 /* DejFlickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DejFlickerView.h; sourceTree = "<group>"; };
 		2D6C27BF1FADC620006A6572 /* DejFlickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DejFlickerView.m; sourceTree = "<group>"; };
+		2D6C27C11FAE1E07006A6572 /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
+		2D6C27C31FAE1E59006A6572 /* YDAuthCodeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YDAuthCodeModel.h; sourceTree = "<group>"; };
+		2D6C27C41FAE1E59006A6572 /* YDAuthCodeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YDAuthCodeModel.m; sourceTree = "<group>"; };
+		2D6C27C91FAE1FE8006A6572 /* YDRegisterModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YDRegisterModel.h; sourceTree = "<group>"; };
+		2D6C27CA1FAE1FE8006A6572 /* YDRegisterModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YDRegisterModel.m; sourceTree = "<group>"; };
+		2D6C27CF1FAE2503006A6572 /* YDLogoutModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YDLogoutModel.h; sourceTree = "<group>"; };
+		2D6C27D01FAE2503006A6572 /* YDLogoutModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YDLogoutModel.m; sourceTree = "<group>"; };
+		2D6C27D21FAE2543006A6572 /* YDUserInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YDUserInfoModel.h; sourceTree = "<group>"; };
+		2D6C27D31FAE2543006A6572 /* YDUserInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YDUserInfoModel.m; sourceTree = "<group>"; };
 		2D781CD81FAC6D4500351E22 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		2D781CD91FAC6D4500351E22 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
 		2D781CDA1FAC6D4500351E22 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
@@ -188,8 +202,16 @@
 				2D6C27B51FADBE70006A6572 /* UserEntity.m */,
 				2D6C27B11FADBB4F006A6572 /* YDLoginModel.h */,
 				2D6C27B21FADBB4F006A6572 /* YDLoginModel.m */,
+				2D6C27CF1FAE2503006A6572 /* YDLogoutModel.h */,
+				2D6C27D01FAE2503006A6572 /* YDLogoutModel.m */,
 				2D6C27B71FADBEA7006A6572 /* YDVaildPhoneModel.h */,
 				2D6C27B81FADBEA7006A6572 /* YDVaildPhoneModel.m */,
+				2D6C27C31FAE1E59006A6572 /* YDAuthCodeModel.h */,
+				2D6C27C41FAE1E59006A6572 /* YDAuthCodeModel.m */,
+				2D6C27C91FAE1FE8006A6572 /* YDRegisterModel.h */,
+				2D6C27CA1FAE1FE8006A6572 /* YDRegisterModel.m */,
+				2D6C27D21FAE2543006A6572 /* YDUserInfoModel.h */,
+				2D6C27D31FAE2543006A6572 /* YDUserInfoModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -325,6 +347,7 @@
 		2DFDE4941FAC93C300396EF8 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				2D6C27C11FAE1E07006A6572 /* Foundation+Log.m */,
 				2D09FDA31FACB21400D487FD /* NSString+Valid.h */,
 				2D09FDA41FACB21400D487FD /* NSString+Valid.m */,
 				2DFDE4951FAC93C300396EF8 /* UIView+animated.h */,
@@ -513,7 +536,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D09FDA51FACB21400D487FD /* NSString+Valid.m in Sources */,
+				2D6C27D11FAE2503006A6572 /* YDLogoutModel.m in Sources */,
 				2D781D0A1FAC6D4500351E22 /* UIProgressView+AFNetworking.m in Sources */,
+				2D6C27D41FAE2543006A6572 /* YDUserInfoModel.m in Sources */,
 				2D781D081FAC6D4500351E22 /* UIButton+AFNetworking.m in Sources */,
 				2D6C27AC1FADB745006A6572 /* PASTextField.m in Sources */,
 				2D781D0B1FAC6D4500351E22 /* UIRefreshControl+AFNetworking.m in Sources */,
@@ -533,6 +558,7 @@
 				2D781D391FAC6DCC00351E22 /* NSObject+MJProperty.m in Sources */,
 				2D781D3A1FAC6DCC00351E22 /* NSString+MJExtension.m in Sources */,
 				E907A5671FAC50FD00E9C73E /* YDMainController.m in Sources */,
+				2D6C27C21FAE1E08006A6572 /* Foundation+Log.m in Sources */,
 				2D6C27B61FADBE70006A6572 /* UserEntity.m in Sources */,
 				2D781CFC1FAC6D4500351E22 /* AFHTTPSessionManager.m in Sources */,
 				2D6C27BD1FADC0F2006A6572 /* DejActivityView.m in Sources */,
@@ -553,10 +579,12 @@
 				2D781D331FAC6DCC00351E22 /* MJProperty.m in Sources */,
 				2D781D311FAC6DCC00351E22 /* MJExtensionConst.m in Sources */,
 				2D6C27C01FADC620006A6572 /* DejFlickerView.m in Sources */,
+				2D6C27C51FAE1E59006A6572 /* YDAuthCodeModel.m in Sources */,
 				2D6C27B31FADBB4F006A6572 /* YDLoginModel.m in Sources */,
 				2D781D071FAC6D4500351E22 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				2D781D161FAC6D7900351E22 /* YDNetworking.m in Sources */,
 				2D781D061FAC6D4500351E22 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				2D6C27CB1FAE1FE8006A6572 /* YDRegisterModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "YDVaildPhoneModel.h"
+#import "YDAuthCodeModel.h"
+#import "YDLoginModel.h"
+#import "YDLogoutModel.h"
+#import "YDRegisterModel.h"
+#import "YDUserInfoModel.h"
 
 @interface UserEntity : NSObject
 
