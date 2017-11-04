@@ -11,6 +11,11 @@
 		2D09FDA81FACB3B900D487FD /* TELTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D09FDA71FACB3B900D487FD /* TELTextField.m */; };
 		2D6C27AC1FADB745006A6572 /* PASTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6C27AB1FADB745006A6572 /* PASTextField.m */; };
 		2D6C27AF1FADB758006A6572 /* CodTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6C27AE1FADB758006A6572 /* CodTextField.m */; };
+		2D6C27B31FADBB4F006A6572 /* YDLoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6C27B21FADBB4F006A6572 /* YDLoginModel.m */; };
+		2D6C27B61FADBE70006A6572 /* UserEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6C27B51FADBE70006A6572 /* UserEntity.m */; };
+		2D6C27B91FADBEA7006A6572 /* YDVaildPhoneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6C27B81FADBEA7006A6572 /* YDVaildPhoneModel.m */; };
+		2D6C27BD1FADC0F2006A6572 /* DejActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6C27BC1FADC0F1006A6572 /* DejActivityView.m */; };
+		2D6C27C01FADC620006A6572 /* DejFlickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6C27BF1FADC620006A6572 /* DejFlickerView.m */; };
 		2D781CFC1FAC6D4500351E22 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D781CD91FAC6D4500351E22 /* AFHTTPSessionManager.m */; };
 		2D781CFD1FAC6D4500351E22 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D781CDC1FAC6D4500351E22 /* AFNetworkReachabilityManager.m */; };
 		2D781CFE1FAC6D4500351E22 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D781CDE1FAC6D4500351E22 /* AFSecurityPolicy.m */; };
@@ -66,6 +71,16 @@
 		2D6C27AB1FADB745006A6572 /* PASTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PASTextField.m; sourceTree = "<group>"; };
 		2D6C27AD1FADB758006A6572 /* CodTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CodTextField.h; sourceTree = "<group>"; };
 		2D6C27AE1FADB758006A6572 /* CodTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CodTextField.m; sourceTree = "<group>"; };
+		2D6C27B11FADBB4F006A6572 /* YDLoginModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YDLoginModel.h; sourceTree = "<group>"; };
+		2D6C27B21FADBB4F006A6572 /* YDLoginModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YDLoginModel.m; sourceTree = "<group>"; };
+		2D6C27B41FADBE70006A6572 /* UserEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserEntity.h; sourceTree = "<group>"; };
+		2D6C27B51FADBE70006A6572 /* UserEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserEntity.m; sourceTree = "<group>"; };
+		2D6C27B71FADBEA7006A6572 /* YDVaildPhoneModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YDVaildPhoneModel.h; sourceTree = "<group>"; };
+		2D6C27B81FADBEA7006A6572 /* YDVaildPhoneModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YDVaildPhoneModel.m; sourceTree = "<group>"; };
+		2D6C27BB1FADC0F1006A6572 /* DejActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DejActivityView.h; sourceTree = "<group>"; };
+		2D6C27BC1FADC0F1006A6572 /* DejActivityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DejActivityView.m; sourceTree = "<group>"; };
+		2D6C27BE1FADC620006A6572 /* DejFlickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DejFlickerView.h; sourceTree = "<group>"; };
+		2D6C27BF1FADC620006A6572 /* DejFlickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DejFlickerView.m; sourceTree = "<group>"; };
 		2D781CD81FAC6D4500351E22 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		2D781CD91FAC6D4500351E22 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
 		2D781CDA1FAC6D4500351E22 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
@@ -166,6 +181,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D6C27B01FADBAD0006A6572 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2D6C27B41FADBE70006A6572 /* UserEntity.h */,
+				2D6C27B51FADBE70006A6572 /* UserEntity.m */,
+				2D6C27B11FADBB4F006A6572 /* YDLoginModel.h */,
+				2D6C27B21FADBB4F006A6572 /* YDLoginModel.m */,
+				2D6C27B71FADBEA7006A6572 /* YDVaildPhoneModel.h */,
+				2D6C27B81FADBEA7006A6572 /* YDVaildPhoneModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2D6C27BA1FADC0F1006A6572 /* DejActivityView */ = {
+			isa = PBXGroup;
+			children = (
+				2D6C27BB1FADC0F1006A6572 /* DejActivityView.h */,
+				2D6C27BC1FADC0F1006A6572 /* DejActivityView.m */,
+				2D6C27BE1FADC620006A6572 /* DejFlickerView.h */,
+				2D6C27BF1FADC620006A6572 /* DejFlickerView.m */,
+			);
+			path = DejActivityView;
+			sourceTree = "<group>";
+		};
 		2D781CD61FAC6D4500351E22 /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -340,6 +379,7 @@
 		E907A5611FAC50E300E9C73E /* Code */ = {
 			isa = PBXGroup;
 			children = (
+				2D6C27B01FADBAD0006A6572 /* Model */,
 				2DFDE4941FAC93C300396EF8 /* Category */,
 				2DFDE4921FAC704D00396EF8 /* Common */,
 				E907A5701FAC534400E9C73E /* View */,
@@ -374,6 +414,7 @@
 		E907A5641FAC50E300E9C73E /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				2D6C27BA1FADC0F1006A6572 /* DejActivityView */,
 				2DFDE4981FACA19D00396EF8 /* TimerManager */,
 				2D781D0D1FAC6D7900351E22 /* YDNetworking */,
 			);
@@ -492,7 +533,9 @@
 				2D781D391FAC6DCC00351E22 /* NSObject+MJProperty.m in Sources */,
 				2D781D3A1FAC6DCC00351E22 /* NSString+MJExtension.m in Sources */,
 				E907A5671FAC50FD00E9C73E /* YDMainController.m in Sources */,
+				2D6C27B61FADBE70006A6572 /* UserEntity.m in Sources */,
 				2D781CFC1FAC6D4500351E22 /* AFHTTPSessionManager.m in Sources */,
+				2D6C27BD1FADC0F2006A6572 /* DejActivityView.m in Sources */,
 				2D781D151FAC6D7900351E22 /* YDNetWork.m in Sources */,
 				2DFDE4971FAC93C300396EF8 /* UIView+animated.m in Sources */,
 				2D781D381FAC6DCC00351E22 /* NSObject+MJKeyValue.m in Sources */,
@@ -506,8 +549,11 @@
 				2D781CFD1FAC6D4500351E22 /* AFNetworkReachabilityManager.m in Sources */,
 				2D781D0C1FAC6D4500351E22 /* UIWebView+AFNetworking.m in Sources */,
 				E907A56D1FAC512D00E9C73E /* YDLoginController.m in Sources */,
+				2D6C27B91FADBEA7006A6572 /* YDVaildPhoneModel.m in Sources */,
 				2D781D331FAC6DCC00351E22 /* MJProperty.m in Sources */,
 				2D781D311FAC6DCC00351E22 /* MJExtensionConst.m in Sources */,
+				2D6C27C01FADC620006A6572 /* DejFlickerView.m in Sources */,
+				2D6C27B31FADBB4F006A6572 /* YDLoginModel.m in Sources */,
 				2D781D071FAC6D4500351E22 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				2D781D161FAC6D7900351E22 /* YDNetworking.m in Sources */,
 				2D781D061FAC6D4500351E22 /* AFNetworkActivityIndicatorManager.m in Sources */,

@@ -572,7 +572,10 @@
 }
 
 
-
+- (void)dealloc
+{
+    NSLog(@"--d登录释放--");
+}
 
 
 @end

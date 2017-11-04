@@ -8,6 +8,7 @@
 
 #import "YDLoginController.h"
 #import "YDAlertLogin.h"
+#import "DejFlickerView.h"
 
 #define kScreenW ([[UIScreen mainScreen]bounds].size.width)
 #define kScreenH ([[UIScreen mainScreen]bounds].size.height)
@@ -60,6 +61,9 @@
     self.alertLogin.loginMode = LoginModeVerity;
     
     [self.view addSubview:self.alertLogin];
+    
+    //[DejFlickerView activityViewForView:self.alertLogin withLabel:@"那个什么错"];
+    [DejFlickerView activityWithText:@"什么错误呀"];
 }
 
 
@@ -79,7 +83,10 @@
 
 
 
-
+-(void)dealloc
+{
+    NSLog(@"---login释放--");
+}
 
 
 

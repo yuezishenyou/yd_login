@@ -14,6 +14,20 @@
 
 @implementation YDNetworking
 
++ (void)postGetVaildPhoneWithDictionary:(NSDictionary *)dict resultBlock:(void(^)(YDVaildPhoneModel *model,NSError *error))block;
+{
+    NSString *url = [NSString stringWithFormat:@"%@%@",GATEWAY,@"/user/isExist"];
+    
+    [YDNetWork POST:url parameters:dict success:^(id responseBody) {
+        NSLog(@"---responseBody:%@---",responseBody);
+        YDVaildPhoneModel *model = [YDVaildPhoneModel mj_objectWithKeyValues:responseBody];
+        block(model,nil);
+        
+    } failure:^(NSError *error) {
+        NSLog(@"---xxx---");
+        block(nil,error);
+    }];
+}
 
 
 
@@ -34,18 +48,6 @@
 
 
 
-
-//+ (void)postGetDetailWithDictionary:(NSDictionary *)dic resultBlock:(void(^)(YDDetailModel *model,NSError *error))block
-//{
-//
-//}
-
-
-
-//+ (void)postGetDictionary:(NSDictionary *)dic resultBlock:(void(^)(YDDetailModel *model,NSError *error))block
-//{
-//
-//}
 
 
 
