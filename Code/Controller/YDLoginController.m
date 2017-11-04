@@ -9,6 +9,9 @@
 #import "YDLoginController.h"
 #import "YDAlertLogin.h"
 #import "DejFlickerView.h"
+#import "YDNetworking.h"
+#import "NSString+Valid.h"
+#import "YDRegistController.h"
 
 #define kScreenW ([[UIScreen mainScreen]bounds].size.width)
 #define kScreenH ([[UIScreen mainScreen]bounds].size.height)
@@ -44,16 +47,145 @@
     [self initSubViews];
     
     
+    [self addBlock];
+    
+    
     
 }
+
+- (void)addBlock
+{
+    __weak typeof(self) weakSelf = self;
+    
+    [self.alertLogin setLoginBlock:^(NSInteger loginMode, NSString *phone, NSString *data) {
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        [strongSelf login:loginMode phone:phone data:data];
+
+    }];
+    
+    
+    [self.alertLogin setGetCodeBlock:^(NSString *phone) {
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        [strongSelf getCode:phone];
+    }];
+    
+    
+    [self.alertLogin setRegistBlock:^(NSString *phone) {
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        [strongSelf regist:phone];
+    }];
+    
+    
+}
+- (void)regist:(NSString *)phone
+{
+//    if (![NSString validateMobile:phone]) {
+//        [DejFlickerView flickerWithLabeText:@"手机号码格式有误!"];
+//        return;
+//    }
+    
+    YDRegistController *regist = [[YDRegistController alloc]init];
+    [self.navigationController pushViewController:regist animated:YES];
+}
+
+
+
+- (void)getCode:(NSString *)phone
+{
+    if (![NSString validateMobile:phone]) {
+        [DejFlickerView flickerWithLabeText:@"手机号码格式有误!"];
+        return;
+    }
+    
+    [self.alertLogin runTimer];
+    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:
+                          @"18217726501",@"phone",
+                          nil];
+    
+    [YDNetworking postGetAuthCodeDictionary:dict resultBlock:^(YDAuthCodeModel *model, NSError *error) {
+        if (!error) {
+            if ([model.code isEqualToString:@"0"]) {
+                [DejFlickerView flickerWithLabeText:@"验证码已发送,注意查收!"];
+            }
+        }
+    }];
+}
+
+
+
+
+
+- (void)login:(NSInteger)loginMode phone:(NSString *)phone data:(NSString *)data
+{
+    if (![NSString validateMobile:phone]) {
+        [DejFlickerView flickerWithLabeText:@"手机格式有误!"];
+        return;
+    }
+    
+    NSDictionary *dict;
+    if (loginMode == LoginModeVerity){
+        dict = [NSDictionary dictionaryWithObjectsAndKeys:
+                phone,@"phone",
+                data,@"vcode",
+                nil];
+    }
+    else{
+        if (![NSString validatePass:data]) {
+            [DejFlickerView flickerWithLabeText:@"密码格式有误!"];
+            return;
+        }
+        dict = [NSDictionary dictionaryWithObjectsAndKeys:
+                phone,@"phone",
+                data,@"password",
+                nil];
+    }
+    
+    [YDNetworking postGetLoginDictionary:dict loginMode:loginMode resultBlock:^(YDLoginModel *model, NSError *error) {
+        
+        if (!error) {
+            if ([model.code isEqualToString:@"0"]){
+                NSString *token = model.data;
+                NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+                [ud setObject:token forKey:@"token"];
+                
+                [self.alertLogin stopTimer];
+                [self.alertLogin removeFromSuperview];
+                [self dismissViewControllerAnimated:YES completion:nil];
+            }
+            else{
+                [DejFlickerView flickerWithLabeText:model.msg];
+            }
+        }
+        
+    }];
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 - (void)initSubViews
 {
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"X" style:UIBarButtonItemStyleDone target:self action:@selector(back)];
-    
-    
     
 
     self.alertLogin = [[YDAlertLogin alloc]initWithFrame:CGRectMake(0, 100, kScreenW, 100)];
@@ -62,7 +194,7 @@
     
     [self.view addSubview:self.alertLogin];
     
-    [DejFlickerView flickerWithLabeText:@"什么错误呀"];
+    //[DejFlickerView flickerWithLabeText:@"什么错误呀"];
 }
 
 

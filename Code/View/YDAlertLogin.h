@@ -19,7 +19,16 @@ typedef NS_ENUM(NSInteger, LoginMode) {
 
 @property (nonatomic, assign) LoginMode loginMode;
 
+@property (nonatomic, copy) void(^loginBlock)(NSInteger loginMode, NSString *phone,NSString *data);
 
+@property (nonatomic, copy) void(^registBlock)(NSString *phone);
+
+@property (nonatomic, copy) void(^getCodeBlock)(NSString *phone);
+
+
+- (void)runTimer;
+
+- (void)stopTimer;
 
 
 

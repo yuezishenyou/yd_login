@@ -43,7 +43,7 @@
     
     //[self loadData5];     //用户信息
     
-    [self loadData6];     //退出
+    //[self loadData6];     //退出
     
     
     

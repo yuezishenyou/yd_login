@@ -37,6 +37,10 @@
  */
 + (void)postGetRegistDictionary:(NSDictionary *)dict resultBlock:(void(^)(YDRegisterModel *model,NSError *error))block;
 
+// 0 验证码 ， 1 密码
++ (void)postGetLoginDictionary:(NSDictionary *)dict loginMode:(NSInteger)loginMode resultBlock:(void(^)(YDLoginModel *model,NSError *error))block;
+
+
 
 /**
  * 4.登录

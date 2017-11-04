@@ -181,31 +181,46 @@
 - (void)loginBtnAction
 {
     NSLog(@"--登录--");
+    NSString *phone = [self dealWithMobile];
+    NSString *data  = [self dealWithPassOrCode];
+    
+    if (_loginBlock) {
+        _loginBlock(_loginMode,phone,data);
+    }
 }
 
 - (void)registBtnAction
 {
-
     NSLog(@"--注册--");
+    NSString *phone = [self dealWithMobile];
+    if (_registBlock) {
+        _registBlock(phone);
+    }
+    
 }
 
 - (void)getCode:(UIButton *)btn
 {
-    
+    NSLog(@"--获取验证码--");
     NSString *phone = [self dealWithMobile];
     
-    if (![NSString validateMobile:phone]) {
-        
-        NSLog(@"---手机号无效---");
-        
-        return ;
+    if (_getCodeBlock) {
+        _getCodeBlock(phone);
     }
-    
-    
-    
-    NSLog(@"--获取验证码:%@--",phone);
 
-    [self runTimer];
+    
+//    if (![NSString validateMobile:phone]) {
+//
+//        NSLog(@"---手机号无效---");
+//
+//        return ;
+//    }
+//
+//
+//
+//    NSLog(@"--获取验证码:%@--",phone);
+//
+//    [self runTimer];
     
 }
 
@@ -227,6 +242,22 @@
     return phone;
 }
 
+- (NSString *)dealWithPassOrCode
+{
+    NSString *data = nil;
+    if (_loginMode == LoginModeVerity)
+    {
+        data = _verCodeTextField.text;
+    }
+    else if(_loginMode == LoginModePass)
+    {
+        data = _pasWordTextField.text;
+    }
+    
+    data = [data stringByReplacingOccurrencesOfString:@" "withString:@""];
+    
+    return data;
+}
 
 
 
@@ -574,7 +605,7 @@
 
 - (void)dealloc
 {
-    NSLog(@"--d登录释放--");
+    NSLog(@"--登录V释放--");
 }
 
 

@@ -85,6 +85,37 @@
     }];
 }
 
++ (void)postGetLoginDictionary:(NSDictionary *)dict loginMode:(NSInteger)loginMode resultBlock:(void(^)(YDLoginModel *model,NSError *error))block
+{
+    if (loginMode == 0)
+    {
+        NSString *url = [NSString stringWithFormat:@"%@%@",GATEWAY,@"/user/loginsms"];
+        [YDNetWork POST:url parameters:dict success:^(id responseBody) {
+            NSLog(@"---responseBody:%@---",responseBody);
+            YDLoginModel *model = [YDLoginModel mj_objectWithKeyValues:responseBody];
+            block(model,nil);
+        } failure:^(NSError *error) {
+            NSLog(@"---xxx---");
+            block(nil,error);
+        }];
+    }
+    else
+    {
+        NSString *url = [NSString stringWithFormat:@"%@%@",GATEWAY,@"/user/login"];
+        [YDNetWork POST:url parameters:dict success:^(id responseBody) {
+            NSLog(@"---responseBody:%@---",responseBody);
+            YDLoginModel *model = [YDLoginModel mj_objectWithKeyValues:responseBody];
+            block(model,nil);
+        } failure:^(NSError *error) {
+            NSLog(@"---xxx---");
+            block(nil,error);
+        }];
+    }
+}
+
+
+
+
 + (void)postGetUserInfoDictionary:(NSDictionary *)dict resultBlock:(void(^)(YDUserInfoModel *model,NSError *error))block
 {
     NSString *url = [NSString stringWithFormat:@"%@%@",GATEWAY,@"/user/getUserInfo"];
