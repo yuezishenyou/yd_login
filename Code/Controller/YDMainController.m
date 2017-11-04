@@ -55,7 +55,8 @@
                           nil];
     
      //[DejActivityView activityViewForView:self.view withLabel:@"逆发改委个地方你啊对方的方式地方"];
-    [DejFlickerView activityViewForView:self.view withLabel:@"验证码不能为空"];
+    //[DejFlickerView flickerWithLabeText:self.view withLabel:@"验证码不能为空"];
+    [DejFlickerView flickerViewForView:self.view withLabel:@"abc"];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         //[DejActivityView activityViewForView:self.view withError:@"加载失败"];

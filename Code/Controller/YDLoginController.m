@@ -62,8 +62,7 @@
     
     [self.view addSubview:self.alertLogin];
     
-    //[DejFlickerView activityViewForView:self.alertLogin withLabel:@"那个什么错"];
-    [DejFlickerView activityWithText:@"什么错误呀"];
+    [DejFlickerView flickerWithLabeText:@"什么错误呀"];
 }
 
 

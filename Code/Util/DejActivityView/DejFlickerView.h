@@ -17,16 +17,10 @@
 
 @interface DejFlickerView : UIView
 
-@property (nonatomic, strong, readonly) UIView *borderView;
 
-@property (nonatomic, strong, readonly) UILabel *activityLabel;
++ (DejFlickerView *)flickerWithLabeText:(NSString *)labelText;
 
-@property (nonatomic, assign) NSInteger  duration;
++ (DejFlickerView *)flickerViewForView:(UIView *)addToView withLabel:(NSString *)labelText;
 
-+ (DejFlickerView *)activityWithText:(NSString *)title;
-
-+ (DejFlickerView *)activityViewForView:(UIView *)addToView withLabel:(NSString *)labelText;
-
-+ (void)removeView;
 
 @end

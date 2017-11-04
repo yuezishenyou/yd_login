@@ -15,9 +15,10 @@
 
 @interface DejFlickerView()
 
-@property (nonatomic, weak)   UIView *originalView;
-@property (nonatomic, strong) UIView *borderView;
-@property (nonatomic, strong) UILabel *activityLabel;
+@property (nonatomic, strong) UIView  *borderView;
+@property (nonatomic, weak)   UIView  *originalView;
+@property (nonatomic, strong) UILabel *tipLabel;
+@property (nonatomic, assign) NSInteger  duration;
 
 @end
 
@@ -27,9 +28,6 @@ static DejFlickerView *dejFlickerView = nil;
     CGFloat width;
     CGFloat height;
 }
-@synthesize originalView;
-@synthesize borderView;
-@synthesize activityLabel;
 
 
 
@@ -96,14 +94,14 @@ static DejFlickerView *dejFlickerView = nil;
     
     
     NSDictionary *att = @{NSFontAttributeName:[UIFont systemFontOfSize:kFontSize]};
-    CGSize size = [self.activityLabel.text sizeWithAttributes:att];
+    CGSize size = [self.tipLabel.text sizeWithAttributes:att];
     
     
     CGFloat borderWidth;
     CGFloat borderHeight;
 
-        borderWidth = size.width + 50 +10;
-        borderHeight = kBorderHeight;
+    borderWidth = size.width + 50 +10;
+    borderHeight = kBorderHeight;
     
     
     
@@ -116,22 +114,17 @@ static DejFlickerView *dejFlickerView = nil;
     
     
     
-    //activityIndicator
-//    CGAffineTransform transform = CGAffineTransformMakeScale(1.5f, 1.5f);//40px
-//    self.activityIndicator.transform = transform;
-//    self.activityIndicator.color = [UIColor orangeColor];
-    
     
     //activityLabel
     CGRect activityLabelFrame = CGRectZero;
     activityLabelFrame.size.width = borderWidth;
     activityLabelFrame.size.height = 20;
-    self.activityLabel.frame = activityLabelFrame;
+    self.tipLabel.frame = activityLabelFrame;
     
     
 
-        self.activityLabel.center = CGPointMake(borderWidth / 2 + 30, borderHeight / 2 );
-        self.activityLabel.textAlignment = NSTextAlignmentLeft;
+    self.tipLabel.center = CGPointMake(borderWidth / 2 + 30, borderHeight / 2 );
+    self.tipLabel.textAlignment = NSTextAlignmentLeft;
 
     
     
@@ -155,13 +148,13 @@ static DejFlickerView *dejFlickerView = nil;
         
         self.borderView = [self makeBorderView];
         
-        self.activityLabel = [self makeActivityLabelWithText:labelText];
+        self.tipLabel = [self makeActivityLabelWithText:labelText];
         
 
         
         [addToView addSubview:self];
         [self addSubview:self.borderView];
-        [self.borderView addSubview:self.activityLabel];
+        [self.borderView addSubview:self.tipLabel];
         
         
         
@@ -239,8 +232,7 @@ static DejFlickerView *dejFlickerView = nil;
 
 
 
-
-+ (DejFlickerView *)activityViewForView:(UIView *)addToView withLabel:(NSString *)labelText duration:(NSInteger)duration
++ (DejFlickerView *)flickerViewForView:(UIView *)addToView withLabel:(NSString *)labelText duration:(NSInteger)duration
 {
     if (dejFlickerView)
     {
@@ -258,20 +250,28 @@ static DejFlickerView *dejFlickerView = nil;
 
 
 
+
+
+
+
+
+
 // ----------------------------------------------------------------------------------------
 // MARK: - 自定义方法
 // ----------------------------------------------------------------------------------------
 
-+ (DejFlickerView *)activityViewForView:(UIView *)addToView withLabel:(NSString *)labelText
++ (DejFlickerView *)flickerViewForView:(UIView *)addToView withLabel:(NSString *)labelText
 {
-    return [self activityViewForView:addToView withLabel:labelText duration:kDuration];
+    return [self flickerViewForView:addToView withLabel:labelText duration:kDuration];
 }
 
-+ (DejFlickerView *)activityWithText:(NSString *)title
++ (DejFlickerView *)flickerWithLabeText:(NSString *)labelText
 {
     UIWindow *w = [UIApplication sharedApplication].keyWindow;
-    return [self activityViewForView:w withLabel:title duration:kDuration];
+    return [self flickerViewForView:w withLabel:labelText duration:kDuration];
 }
+
+
 
 
 
@@ -288,7 +288,7 @@ static DejFlickerView *dejFlickerView = nil;
     {
         dejFlickerView = nil;
     }
-    NSLog(@"--提示框释放---");
+    //NSLog(@"--提示框释放---");
 }
 
 @end
