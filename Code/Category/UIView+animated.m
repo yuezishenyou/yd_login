@@ -41,6 +41,9 @@ static AnimationMode mode;
     
     switch (animationMode)
     {
+        case AnimationModeNone:
+            [self slideNoneShow:view];
+            break;
         case AnimationModeDown:
             [self slideDownShow:view];
             break;
@@ -72,6 +75,9 @@ static AnimationMode mode;
     
     switch (animationMode)
     {
+        case AnimationModeNone:
+            [self slideNoneHidden];
+            break;
         case AnimationModeDown:
             [self slideDownHidden];
             break;
@@ -103,6 +109,24 @@ static AnimationMode mode;
 //-----------------------------------------------------------------
 //--Show and Hidden
 //-----------------------------------------------------------------
+- (void)slideNoneShow:(UIView *)view
+{
+    if (self.superview) {
+        [self removeFromSuperview];
+    }
+    [view addSubview:self];
+    self.alpha = 1.0;
+}
+- (void)slideNoneHidden
+{
+    if (self.superview)
+    {
+        self.alpha = 0.0;
+        [self hideAnimationFinish];
+    }
+}
+
+
 - (void)slideDDRightShow:(UIView *)view
 {
     if (self.superview) {

@@ -27,6 +27,8 @@
 - (void)setup
 {
     self.keyboardType = UIKeyboardTypeNumberPad;
+    self.clearButtonMode = UITextFieldViewModeWhileEditing;
+  
     _num = 0;
     [self addTarget:self action:@selector(textFieldDidEditing:) forControlEvents:UIControlEventEditingChanged];
 }

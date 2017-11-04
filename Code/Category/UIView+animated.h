@@ -9,12 +9,14 @@
 #import <UIKit/UIKit.h>
 
 typedef NS_ENUM(NSInteger, AnimationMode) {
-    AnimationModeDown = 0,      //由上往下
-    AnimationModeUp,        //由下往上
-    AnimationModeLeft,      //由右往左
-    AnimationModeRight,      //由左往右
+    AnimationModeNone = 0,
+    AnimationModeDown ,         //由上往下
+    AnimationModeUp,            //由下往上
+    AnimationModeLeft,          //由右往左
+    AnimationModeRight,         //由左往右
     AnimationModeDDLeft,
     AnimationModeDDRight,
+    
 };
 
 

@@ -7,10 +7,12 @@
 //
 
 #import "YDAlertLogin.h"
+#import "TELTextField.h"
+#import "PASTextField.h"
+#import "CodTextField.h"
+#import "NSString+Valid.h"
 #import "UIView+animated.h"
 #import "TimerManager.h"
-#import "TELTextField.h"
-#import "NSString+Valid.h"
 
 #define kDFont 18
 #define kXFont 15
@@ -26,13 +28,14 @@
     CGFloat width;
     CGFloat height;
     NSInteger count;
+    BOOL  isFirst;
 }
 @property (nonatomic, strong) UIView * verityView;//验证码背景框
 @property (nonatomic, strong) UIView * passView;  //登录背景框
 
 @property (nonatomic, strong) UILabel *verTitleLab;
 @property (nonatomic, strong) TELTextField *verTelTextField;
-@property (nonatomic, strong) UITextField *verCodeTextField;
+@property (nonatomic, strong) CodTextField *verCodeTextField;
 @property (nonatomic, strong) UIButton *verGetCodeBtn;
 @property (nonatomic, strong) UIView *verLine1;
 @property (nonatomic, strong) UIView *verLine2;
@@ -41,7 +44,7 @@
 
 @property (nonatomic, strong) UILabel *pasTitleLab;
 @property (nonatomic, strong) TELTextField *pasTelTextField;
-@property (nonatomic, strong) UITextField *pasWordTextField;
+@property (nonatomic, strong) PASTextField *pasWordTextField;
 @property (nonatomic, strong) UIView *pasLine1;
 @property (nonatomic, strong) UIView *pasLine2;
 
@@ -118,15 +121,20 @@
     
     if (loginMode == LoginModeVerity)
     {
-        self.phone = _pasTelTextField.text;
+        self.phone =  _pasTelTextField.text;
         
         [self setupVerity];
         
         _verTelTextField.text = self.phone;
         _verCodeTextField.text = @"";
         
-        [self.verityView showInView:self animationMode:AnimationModeDDLeft];
-        
+        if (!isFirst){
+            isFirst = YES;
+            [self.verityView showInView:self animationMode:AnimationModeNone];
+        }
+        else{
+            [self.verityView showInView:self animationMode:AnimationModeDDLeft];
+        }
     }
     else if (loginMode == LoginModePass)
     {
@@ -137,8 +145,13 @@
         _pasTelTextField.text = self.phone;
         _pasWordTextField.text = @"";
         
-        
-        [self.passView showInView:self animationMode:AnimationModeDDLeft];
+        if (!isFirst) {
+            isFirst = YES;
+            [self.passView showInView:self animationMode:AnimationModeNone];
+        }else{
+            [self.passView showInView:self animationMode:AnimationModeDDLeft];
+        }
+
     }
     
     CGRect rect = self.frame;
@@ -172,16 +185,52 @@
 
 - (void)registBtnAction
 {
+
     NSLog(@"--注册--");
 }
 
 - (void)getCode:(UIButton *)btn
 {
-    NSLog(@"--获取验证码--");
+    
+    NSString *phone = [self dealWithMobile];
+    
+    if (![NSString validateMobile:phone]) {
+        
+        NSLog(@"---手机号无效---");
+        
+        return ;
+    }
+    
+    
+    
+    NSLog(@"--获取验证码:%@--",phone);
 
     [self runTimer];
     
 }
+
+
+- (NSString *)dealWithMobile
+{
+    NSString *phone = nil;
+    if (_loginMode == LoginModeVerity)
+    {
+        phone = _verTelTextField.text;
+    }
+    else if(_loginMode == LoginModePass)
+    {
+        phone = _pasTelTextField.text;
+    }
+    
+    phone = [phone stringByReplacingOccurrencesOfString:@" "withString:@""];
+    
+    return phone;
+}
+
+
+
+
+
 
 
 // 忘记密码事件之后， 重新发送验证码
@@ -422,18 +471,14 @@
     return _pasLine1;
 }
 
-- (UITextField *)pasWordTextField
+- (PASTextField *)pasWordTextField
 {
     if (!_pasWordTextField) {
         CGRect rect = CGRectMake(kSpace, CGRectGetMaxY(_pasLine1.frame), width - kSpace*2, kTextFieldH);
-        _pasWordTextField = [[UITextField alloc]initWithFrame:rect];
+        _pasWordTextField = [[PASTextField alloc]initWithFrame:rect];
         _pasWordTextField.borderStyle = UITextBorderStyleNone;
         _pasWordTextField.placeholder = @"密码";
         _pasWordTextField.font = [UIFont systemFontOfSize:kXFont];
-        _pasWordTextField.keyboardType = UIKeyboardTypeASCIICapable;
-        _pasWordTextField.autocorrectionType = UITextAutocorrectionTypeNo;
-        _pasWordTextField.spellCheckingType = UITextSpellCheckingTypeNo;
-        _pasWordTextField.autocapitalizationType = UITextAutocapitalizationTypeWords;
         
     }
     return _pasWordTextField;
@@ -503,12 +548,12 @@
     return _verGetCodeBtn;
 }
 
-- (UITextField *)verCodeTextField
+- (CodTextField *)verCodeTextField
 {
     if (!_verCodeTextField) {
         CGFloat btnW = 100;
         CGRect rect = CGRectMake(kSpace, CGRectGetMaxY(_verTelTextField.frame), width - kSpace*2 - btnW - kSpace , kTextFieldH);
-        _verCodeTextField = [[UITextField alloc]initWithFrame:rect];
+        _verCodeTextField = [[CodTextField alloc]initWithFrame:rect];
         _verCodeTextField.placeholder = @"验证码";
         _verCodeTextField.borderStyle = UITextBorderStyleNone;
         _verCodeTextField.keyboardType = UIKeyboardTypeNumberPad;
