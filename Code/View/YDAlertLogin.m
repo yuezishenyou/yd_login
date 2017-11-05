@@ -193,8 +193,8 @@
 {
     NSLog(@"--注册--");
     NSString *phone = [self dealWithMobile];
-    if (_registBlock) {
-        _registBlock(phone);
+    if (_jumpRegistBlock) {
+        _jumpRegistBlock(phone);
     }
     
 }

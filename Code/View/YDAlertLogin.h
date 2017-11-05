@@ -21,9 +21,9 @@ typedef NS_ENUM(NSInteger, LoginMode) {
 
 @property (nonatomic, copy) void(^loginBlock)(NSInteger loginMode, NSString *phone,NSString *data);
 
-@property (nonatomic, copy) void(^registBlock)(NSString *phone);
-
 @property (nonatomic, copy) void(^getCodeBlock)(NSString *phone);
+
+@property (nonatomic, copy) void(^jumpRegistBlock)(NSString *phone);
 
 
 - (void)runTimer;

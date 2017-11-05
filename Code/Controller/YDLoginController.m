@@ -38,8 +38,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.view.backgroundColor = [UIColor yellowColor];
+    self.view.backgroundColor = [UIColor whiteColor];
     
 
     
@@ -69,21 +68,14 @@
         [strongSelf getCode:phone];
     }];
     
-    
-    [self.alertLogin setRegistBlock:^(NSString *phone) {
+    [self.alertLogin setJumpRegistBlock:^(NSString *phone) {
         __strong typeof(weakSelf) strongSelf = weakSelf;
         [strongSelf regist:phone];
     }];
     
-    
 }
 - (void)regist:(NSString *)phone
 {
-//    if (![NSString validateMobile:phone]) {
-//        [DejFlickerView flickerWithLabeText:@"手机号码格式有误!"];
-//        return;
-//    }
-    
     YDRegistController *regist = [[YDRegistController alloc]init];
     [self.navigationController pushViewController:regist animated:YES];
 }
@@ -201,8 +193,7 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-    //[self.view endEditing:YES];
-    
+    [self.view endEditing:YES];
 }
 
 

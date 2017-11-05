@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2D09FDA51FACB21400D487FD /* NSString+Valid.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D09FDA41FACB21400D487FD /* NSString+Valid.m */; };
 		2D09FDA81FACB3B900D487FD /* TELTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D09FDA71FACB3B900D487FD /* TELTextField.m */; };
+		2D1BBEA01FAEC88F00C071CF /* YDAlertRegist.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1BBE9F1FAEC88F00C071CF /* YDAlertRegist.m */; };
 		2D6C27AC1FADB745006A6572 /* PASTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6C27AB1FADB745006A6572 /* PASTextField.m */; };
 		2D6C27AF1FADB758006A6572 /* CodTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6C27AE1FADB758006A6572 /* CodTextField.m */; };
 		2D6C27B31FADBB4F006A6572 /* YDLoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6C27B21FADBB4F006A6572 /* YDLoginModel.m */; };
@@ -73,6 +74,8 @@
 		2D09FDA41FACB21400D487FD /* NSString+Valid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Valid.m"; sourceTree = "<group>"; };
 		2D09FDA61FACB3B900D487FD /* TELTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TELTextField.h; sourceTree = "<group>"; };
 		2D09FDA71FACB3B900D487FD /* TELTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TELTextField.m; sourceTree = "<group>"; };
+		2D1BBE9E1FAEC88F00C071CF /* YDAlertRegist.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YDAlertRegist.h; sourceTree = "<group>"; };
+		2D1BBE9F1FAEC88F00C071CF /* YDAlertRegist.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YDAlertRegist.m; sourceTree = "<group>"; };
 		2D6C27AA1FADB745006A6572 /* PASTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PASTextField.h; sourceTree = "<group>"; };
 		2D6C27AB1FADB745006A6572 /* PASTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PASTextField.m; sourceTree = "<group>"; };
 		2D6C27AD1FADB758006A6572 /* CodTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CodTextField.h; sourceTree = "<group>"; };
@@ -454,6 +457,8 @@
 			children = (
 				E907A5711FAC536700E9C73E /* YDAlertLogin.h */,
 				E907A5721FAC536700E9C73E /* YDAlertLogin.m */,
+				2D1BBE9E1FAEC88F00C071CF /* YDAlertRegist.h */,
+				2D1BBE9F1FAEC88F00C071CF /* YDAlertRegist.m */,
 				2D09FDA61FACB3B900D487FD /* TELTextField.h */,
 				2D09FDA71FACB3B900D487FD /* TELTextField.m */,
 				2D6C27AA1FADB745006A6572 /* PASTextField.h */,
@@ -541,6 +546,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D09FDA51FACB21400D487FD /* NSString+Valid.m in Sources */,
+				2D1BBEA01FAEC88F00C071CF /* YDAlertRegist.m in Sources */,
 				2D6C27D11FAE2503006A6572 /* YDLogoutModel.m in Sources */,
 				2D781D0A1FAC6D4500351E22 /* UIProgressView+AFNetworking.m in Sources */,
 				2D6C27D41FAE2543006A6572 /* YDUserInfoModel.m in Sources */,
