@@ -140,9 +140,11 @@
                 NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
                 [ud setObject:token forKey:@"token"];
                 
+                //[self loadUserInfo:token];
                 [self.alertLogin stopTimer];
                 [self.alertLogin removeFromSuperview];
                 [self dismissViewControllerAnimated:YES completion:nil];
+
             }
             else{
                 [DejFlickerView flickerWithLabeText:model.msg];
@@ -154,7 +156,26 @@
 
 
 
-
+- (void)loadUserInfo:(NSString *)token
+{
+    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:
+                          token,@"token", nil];
+    
+    [YDNetworking postGetUserInfoDictionary:dict resultBlock:^(YDUserInfoModel *model, NSError *error) {
+        
+        if (!error) {
+            if ([model.code isEqualToString:@"0"]) {
+                
+                
+                
+                [self.alertLogin stopTimer];
+                [self.alertLogin removeFromSuperview];
+                [self dismissViewControllerAnimated:YES completion:nil];
+            }
+        }
+    }];
+    
+}
 
 
 

@@ -10,7 +10,6 @@
 #import "TELTextField.h"
 #import "PASTextField.h"
 #import "CodTextField.h"
-#import "NSString+Valid.h"
 #import "UIView+animated.h"
 #import "TimerManager.h"
 
@@ -207,21 +206,6 @@
     if (_getCodeBlock) {
         _getCodeBlock(phone);
     }
-
-    
-//    if (![NSString validateMobile:phone]) {
-//
-//        NSLog(@"---手机号无效---");
-//
-//        return ;
-//    }
-//
-//
-//
-//    NSLog(@"--获取验证码:%@--",phone);
-//
-//    [self runTimer];
-    
 }
 
 
